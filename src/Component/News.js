@@ -15,9 +15,6 @@ const News = (props)=>{
         return string.charAt(0).toUpperCase() + string.slice(1);
     } 
 
-if(articles.code==='rateLimited'){
-    setKey('99df3c23f1dc46b68f3a0d9971bfd1eb');
-}
 
     const updateNews = async ()=> {
         props.setprogress(10);

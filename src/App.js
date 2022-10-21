@@ -31,6 +31,7 @@ const App=()=>{
             height={2}
 
           />
+  <News pagesize={pagesize} setprogress={setprogress} key="technology" country='in' category='technology' />
 
           <Switch>
             <Route exact path='/'>
