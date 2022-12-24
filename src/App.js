@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import Navbar from './Component/Navbar';
 import LoadingBar from 'react-top-loading-bar'
 
@@ -13,7 +13,7 @@ import {
 const App=()=>{
 
  
- const [pagesize,setpagesize]=useState(10);
+ const [pagesize,pageSize]=useState(10);
 
   const [progress, setprogress] = useState(0);
  
@@ -31,8 +31,7 @@ const App=()=>{
             height={2}
 
           />
-  <News pagesize={pagesize} setprogress={setprogress} key="technology" country='in' category='technology' />
-
+ 
           <Switch>
             <Route exact path='/'>
 
@@ -47,7 +46,6 @@ const App=()=>{
             </Route>
             <Route exact path='/health'>         <News setprogress={setprogress} key="health" pagesize={pagesize} country='in' category='health' /></Route>
             <Route exact path='/science'>        <News setprogress={setprogress} key="science" pagesize={pagesize} country='in' category='science' /></Route>
-            <Route exact path='/general'>        <News setprogress={setprogress} key="general" pagesize={pagesize} country='in' category='general' /></Route>
           </Switch>
         </Router>
       </>

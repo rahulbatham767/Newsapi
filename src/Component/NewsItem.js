@@ -3,7 +3,7 @@ import React from 'react';
 
 function NewsItem(props) {
 
-  let {title,description,time,author,imageurl,source,newsurl}=props;
+  let {title,description,time,author,imageUrl,source,newsurl}=props;
   return (
     <>
     <div className="my-3">
@@ -21,7 +21,7 @@ function NewsItem(props) {
         </div>
         </div>
     
-        <img src={!imageurl ? "https://image.cnbcfm.com/api/v1/image/107134729-1665751352674-gettyimages-1349325190-img_7046-edit.jpeg?v=1665967779&w=1920&h=1080" :imageurl} className="card-img-top" alt="..." />
+        <img src={!imageUrl ? "https://image.cnbcfm.com/api/v1/image/107134729-1665751352674-gettyimages-1349325190-img_7046-edit.jpeg?v=1665967779&w=1920&h=1080" :imageUrl} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title my-2">{title}</h5>
           <p className="card-text">{description}</p>

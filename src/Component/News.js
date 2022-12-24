@@ -1,27 +1,27 @@
 import React, {useEffect, useState} from 'react'
 
-import Newsitem from './NewsItem.js';
+import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
 import InfiniteScroll from "react-infinite-scroll-component";
+
+
 
 const News = (props)=>{
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [totalResults, setTotalResults] = useState(0)
-    const [key, setKey] = useState('461bd02a7e024989818ab8d269153ad0');
+    const key='348b57f1c7244fe9a15a84195b291d83';
+    
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     } 
-
 
     const updateNews = async ()=> {
         props.setprogress(10);
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${key}&page=${page}&pageSize=${props.pageSize}`; 
         setLoading(true)
-        
-        props.setprogress(10);
         let data = await fetch(url);
         props.setprogress(30);
         let parsedData = await data.json()
@@ -33,25 +33,19 @@ const News = (props)=>{
     }
 
     useEffect(() => {
-        document.title = `${capitalizeFirstLetter(props.category)==='Technology'?'HOME':capitalizeFirstLetter(props.category)} - NewsMonkey`;
+        document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
         updateNews(); 
         // eslint-disable-next-line
     }, [])
 
 
     const fetchMoreData = async () => {   
-        props.setprogress(10);
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${key}&page=${page+1}&pageSize=${props.pageSize}`;
-
-
         setPage(page+1) 
         let data = await fetch(url);
-        props.setprogress(40);
         let parsedData = await data.json()
         setArticles(articles.concat(parsedData.articles))
-        props.setprogress(70);
         setTotalResults(parsedData.totalResults)
-        props.setprogress(100);
       };
  
         return (
@@ -69,7 +63,7 @@ const News = (props)=>{
                     <div className="row">
                         {articles.map((element) => {
                             return <div className="col-md-4" key={element.url}>
-                                <Newsitem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageurl={element.urlToImage} newsurl={element.url} author={element.author} time={element.publishedAt} source={element.source.name} />
+                                <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
                             </div>
                         })}
                     </div>

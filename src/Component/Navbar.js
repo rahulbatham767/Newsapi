@@ -46,9 +46,7 @@ else{
             <li className="nav-item">
               <Link className="nav-link" to="/science">Science</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/general">general</Link>
-            </li>
+         
           </ul>
 
         </div>
