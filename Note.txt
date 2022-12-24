@@ -1,0 +1,9 @@
+			
+			IF YOU WANT TO RUN THIS 
+
+	1.this webapp runs only on localhost so you need to download it from github
+	2.open the src directory in in your code editor e.g. vscode
+	3.run npm install in your terminal
+	4.npm start
+
+Note:--> if the api key is showing invalid then generate a new api from newsapi 
